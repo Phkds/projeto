@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="PT-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,15 +27,7 @@
         <li class="nav-item">
           <a class="nav-link" href="contato.php">Contato</a>
         </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="carrinho.php"></a>
-        </li>
-         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16" position="fixed"  top= "10px" right="10px" cursor= "pointer"; >
-  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-</svg>
       </ul>
-      
     </div>
   </div>
 </nav>
@@ -44,14 +36,3 @@
 </div>
   </div>
 </nav>
-    <div class="container mt-5">
-        <h1>Bem vindo a  Vitoriano Sports</h1>
-        <p>Aqui você encontra diversas opçoes de camisas</p>
-        <a href="produtos.php" class="btn btn-primary">Ver Produtos</a> 
-    </div>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-
-</body>
-
-</html>
