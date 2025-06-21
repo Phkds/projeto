@@ -31,8 +31,47 @@
     </div>
   </div>
 </nav>
-    </a>
 
 </div>
   </div>
 </nav>
+</div>
+  </div>
+</nav>
+<main class="container mt-5">
+    <h1>Contato</h1>
+    <p>Para entrar em contato conosco, utilize os seguintes meios:</p>
+    <ul>
+        <li>Email:
+<<footer class="bg-dark text-white text-center text-lg-start mt-5 height: 100%
+      margin: 0  min-height: 100vh display: flex flex-direction: column;" >
+      <div class="container p-4">
+        <div class="row">
+          <!-- Sobre a loja -->
+          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Vitoriano Sports</h5>
+            <p>
+              Camisas de time com qualidade e estilo. Nosso compromisso é com sua paixão pelo futebol!
+            </p>
+          </div>
+
+          <!-- Contato -->
+          <div class="col-lg-2 col-md-7 mb-7 mb-md-10">
+            <h5 class="text-uppercase">Contato</h5>
+            <ul class="list-unstyled">
+              <li>Email: paulokondazeski043@gmail.com</li>
+              <li>Telefone: (44) 99865-7175</li>
+              <li>Instagram: @vitorianosports</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Direitos autorais -->
+      <div class="text-center p-3 bg-secondary">
+        © 2025 Vitoriano Sports - Todos os direitos reservados
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
