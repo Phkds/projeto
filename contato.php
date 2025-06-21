@@ -31,7 +31,6 @@
     </div>
   </div>
 </nav>
-
 </div>
   </div>
 </nav>
@@ -39,10 +38,52 @@
   </div>
 </nav>
 <main class="container mt-5">
-    <h1>Contato</h1>
-    <p>Para entrar em contato conosco, utilize os seguintes meios:</p>
-    <ul>
-        <li>Email:
+  <form class="container mt-5">
+    <h2>Formulário de Contato</h2>
+    <p>Preencha o formulário abaixo e entraremos em contato o mais breve possível.</p>
+  <form>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" placeholder="Digite seu nome" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="sobrenome" class="form-label">Sobrenome</label>
+        <input type="text" class="form-control" id="sobrenome" placeholder="Digite seu sobrenome" required>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="email" placeholder="exemplo@email.com" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="telefone" class="form-label">Telefone</label>
+        <input type="tel" class="form-control" id="telefone" placeholder="(XX) XXXXX-XXXX">
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="cep" class="form-label">CEP</label>
+      <input type="text" class="form-control" id="cep" placeholder="00000-000">
+    </div>
+
+    <div class="mb-3">
+      <label for="mensagem" class="form-label">Mensagem</label>
+      <textarea class="form-control" id="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary px-5">Enviar</button>
+    </div>
+  </form>
+</div>
+
+
+
+
+        
 <<footer class="bg-dark text-white text-center text-lg-start mt-5 height: 100%
       margin: 0  min-height: 100vh display: flex flex-direction: column;" >
       <div class="container p-4">
