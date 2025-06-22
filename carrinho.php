@@ -1,51 +1,39 @@
 <?php
 session_start();
 
-// Inicializa o carrinho se não existir
-if (!isset($_SESSION['carrinho'])) {
-    $_SESSION['carrinho'] = [];
-}
+$total = 0;
+$carrinho = $_SESSION['carrinho'] ?? [];
 
-// Produtos disponíveis (deveriam estar em um include ou banco de dados idealmente)
-$produtos = [
-    'camisa1' => [
-        'nome' => 'Camisa do Real Madrid',
-        'imagem' => 'imagens/real madri.jpg',
-        'preco' => 'R$ 150,00'
-    ],
-    'camisa2' => [
-        'nome' => 'Camisa do Bayern de Munique',
-        'imagem' => 'imagens/bayer.jpg',
-        'preco' => 'R$ 140,00'
-    ],
-    // Adicione mais produtos com IDs únicos
-];
-
-// Adicionar item ao carrinho
-if (isset($_GET['adicionar'])) {
-    $id = $_GET['adicionar'];
-    if (isset($produtos[$id])) {
-        if (!isset($_SESSION['carrinho'][$id])) {
-            $_SESSION['carrinho'][$id] = [
-                'nome' => $produtos[$id]['nome'],
-                'imagem' => $produtos[$id]['imagem'],
-                'preco' => $produtos[$id]['preco'],
-                'quantidade' => 1
-            ];
-        } else {
-            $_SESSION['carrinho'][$id]['quantidade']++;
-        }
-    }
-}
-
-// Remover item do carrinho
+// Remover item
 if (isset($_GET['remover'])) {
     $id = $_GET['remover'];
     unset($_SESSION['carrinho'][$id]);
+    header('Location: carrinho.php');
+    exit;
 }
 
-$carrinho = $_SESSION['carrinho'];
-$total = 0;
+// Adicionar item
+if (isset($_GET['adicionar'])) {
+    $id = $_GET['adicionar'];
+    if (isset($_SESSION['carrinho'][$id])) {
+        $_SESSION['carrinho'][$id]['quantidade']++;
+    }
+    header('Location: carrinho.php');
+    exit;
+}
+
+// Reduzir item
+if (isset($_GET['diminuir'])) {
+    $id = $_GET['diminuir'];
+    if (isset($_SESSION['carrinho'][$id])) {
+        $_SESSION['carrinho'][$id]['quantidade']--;
+        if ($_SESSION['carrinho'][$id]['quantidade'] <= 0) {
+            unset($_SESSION['carrinho'][$id]);
+        }
+    }
+    header('Location: carrinho.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -57,44 +45,53 @@ $total = 0;
 </head>
 <body class="container py-4">
 
-  <h1>Carrinho de Compras</h1>
+  <h1 class="mb-4">Carrinho de Compras</h1>
 
   <?php if (empty($carrinho)): ?>
-    <p>Seu carrinho está vazio.</p>
+    <div class="alert alert-info">Seu carrinho está vazio.</div>
+    <a href="index.php" class="btn btn-primary">Voltar à loja</a>
   <?php else: ?>
-    <table class="table table-bordered">
-      <thead>
+    <table class="table table-bordered align-middle text-center">
+      <thead class="table-light">
         <tr>
           <th>Imagem</th>
           <th>Produto</th>
-          <th>Preço</th>
-          <th>Qtd</th>
+          <th>Preço Unitário</th>
+          <th>Quantidade</th>
           <th>Subtotal</th>
-          <th>Ação</th>
+          <th>Ações</th>
         </tr>
       </thead>
       <tbody>
         <?php foreach ($carrinho as $id => $item): 
-          $precoUnitario = floatval(str_replace(['R$', ','], ['', '.'], $item['preco']));
-          $subtotal = $precoUnitario * $item['quantidade'];
+          $precoUnit = floatval(str_replace(['R$', ','], ['', '.'], $item['preco']));
+          $subtotal = $precoUnit * $item['quantidade'];
           $total += $subtotal;
         ?>
           <tr>
-            <td><img src="<?= $item['imagem'] ?>" width="80"></td>
+            <td><img src="<?= $item['imagem'] ?>" width="70"></td>
             <td><?= $item['nome'] ?></td>
             <td><?= $item['preco'] ?></td>
-            <td><?= $item['quantidade'] ?></td>
+            <td>
+              <a href="?diminuir=<?= $id ?>" class="btn btn-sm btn-outline-secondary">−</a>
+              <?= $item['quantidade'] ?>
+              <a href="?adicionar=<?= $id ?>" class="btn btn-sm btn-outline-secondary">+</a>
+            </td>
             <td>R$ <?= number_format($subtotal, 2, ',', '.') ?></td>
             <td><a href="?remover=<?= $id ?>" class="btn btn-sm btn-danger">Remover</a></td>
           </tr>
         <?php endforeach; ?>
         <tr>
-          <td colspan="4"><strong>Total</strong></td>
+          <td colspan="4" class="text-end"><strong>Total:</strong></td>
           <td colspan="2"><strong>R$ <?= number_format($total, 2, ',', '.') ?></strong></td>
         </tr>
       </tbody>
     </table>
-    <a href="carrinho.php" class="btn btn-secondary">Continuar Comprando</a>
+
+    <div class="d-flex justify-content-between">
+      <a href="produtos.php" class="btn btn-secondary">Continuar Comprando</a>
+      <a href="finalizar.php" class="btn btn-success">Finalizar Compra</a>
+    </div>
   <?php endif; ?>
 
 </body>
