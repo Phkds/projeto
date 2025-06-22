@@ -8,6 +8,7 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
   <style>
     /* Footer fixo no final */
@@ -67,7 +68,12 @@
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre nós</a></li>
-          <li class="nav-item"><a class="nav-link" href="contato.php">Contato</a></li>   
+          <li class="nav-item"><a class="nav-link" href="contato.php">Contato</a></li>
+        <li class="nav-item"> <a class="nav-link" href="carrinho.php" title="Carrinho">
+    <i class="bi bi-cart3" style="font-size: 1.2rem;"></i>
+  </a>
+</li>
+
         </ul>
       </div>
     </div>
