@@ -67,9 +67,7 @@
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre nós</a></li>
-          <li class="nav-item"><a class="nav-link" href="contato.php">Contato</a></li>
-          <li class="nav-item"><a class="nav-link" href="carrinho.php" aria-label="Carrinho"><i
-                class="bi bi-cart"></i></a></li>
+          <li class="nav-item"><a class="nav-link" href="contato.php">Contato</a></li>   
         </ul>
       </div>
     </div>
