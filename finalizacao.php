@@ -18,7 +18,7 @@ foreach ($carrinho as $item) {
     // Corrige o índice 'quantidade' removendo espaço extra
     $nome = $item['nome'];
     $preco = $item['preco'];
-    $quantidade = $item['quantidade']; // Removi o espaço extra aqui
+    $quantidade = $item['quantidade']; 
 
     $mensagem .= "• {$nome} - {$quantidade}x - {$preco}\n";
 
