@@ -1,42 +1,77 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vitoriano Sports</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
   <style>
-    body {
-      min-height: 100vh;
+    /* Footer fixo no final */
+    body,
+    html {
+      height: 100%;
+      margin: 0;
       display: flex;
       flex-direction: column;
     }
+
     main {
-      flex: 1;
+      flex: 1 0 auto;
+    }
+
+    footer {
+      flex-shrink: 0;
+    }
+
+    /* Banner */
+    .banner-img {
+      max-height: 300px;
+      object-fit: cover;
+      width: 100%;
+      display: block;
     }
   </style>
+  <style>
+  .btn-cinza-escuro {
+    background-color: #343a40; /* cinza escuro */
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-cinza-escuro:hover,
+  .btn-cinza-escuro:focus {
+    background-color: #23272b; /* cinza ainda mais escuro no hover */
+    color: white;
+  }
+</style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.php">
-        <img src="imagens/logo.png" alt="Logo" width="100" height="100" class="d-inline-block align-text-top" />
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.php">
+        <img src="imagens/logo.png" alt="Logo Vitoriano Sports" width="80" height="80" class="me-2" />
+        <span>Vitoriano Sports</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre nós</a></li>
-          <li class="nav-item"><a class="nav-link" href="contato.php">Contato</a></li>
+          <li class="nav-item"><a class="nav-link" href="contato.php">Contato</a></li>   
         </ul>
       </div>
     </div>
   </nav>
-
   <!-- Conteúdo principal -->
   <main class="container mt-5">
     <form id="form-contato">
