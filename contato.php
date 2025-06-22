@@ -73,14 +73,15 @@
       <label for="mensagem" class="form-label">Mensagem</label>
       <textarea class="form-control" id="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
     </div>
-
+  
+</div>
     <div class="text-center">
       <button type="submit" class="btn btn-primary px-5">Enviar</button>
     </div>
   </form>
 </div>
-
-
+</div>
+<script src="validaçao.js"></script>
 
 
         
