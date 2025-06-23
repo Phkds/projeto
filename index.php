@@ -23,7 +23,7 @@
     main {
       flex: 1 0 auto;
     }
-
+    
     footer {
       flex-shrink: 0;
     }

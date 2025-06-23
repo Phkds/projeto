@@ -1,36 +1,56 @@
 <?php
 session_start();
 
-$total = 0;
-$carrinho = $_SESSION['carrinho'] ?? [];
+// Inicializa o carrinho se ainda não estiver definido
+if (!isset($_SESSION['carrinho'])) {
+    $_SESSION['carrinho'] = [];
+}
 
-// Remover item
+$carrinho = &$_SESSION['carrinho']; // referência para facilitar
+$total = 0;
+
+// Remover item do carrinho
 if (isset($_GET['remover'])) {
     $id = $_GET['remover'];
-    unset($_SESSION['carrinho'][$id]);
+    unset($carrinho[$id]);
     header('Location: carrinho.php');
     exit;
 }
 
-// Adicionar item
+// Adicionar item ao carrinho
 if (isset($_GET['adicionar'])) {
     $id = $_GET['adicionar'];
-    if (isset($_SESSION['carrinho'][$id])) {
-        $_SESSION['carrinho'][$id]['quantidade']++;
+
+    if (isset($carrinho[$id])) {
+        $carrinho[$id]['quantidade']++;
+    } else {
+        $nome = $_GET['nome'] ?? 'Produto';
+        $preco = $_GET['preco'] ?? 'R$ 0,00';
+        $imagem = $_GET['imagem'] ?? 'imagens/padrao.jpg';
+
+        $carrinho[$id] = [
+            'nome' => $nome,
+            'preco' => $preco,
+            'imagem' => $imagem,
+            'quantidade' => 1
+        ];
     }
+
     header('Location: carrinho.php');
     exit;
 }
 
-// Reduzir item
+// Diminuir quantidade de um item
 if (isset($_GET['diminuir'])) {
     $id = $_GET['diminuir'];
-    if (isset($_SESSION['carrinho'][$id])) {
-        $_SESSION['carrinho'][$id]['quantidade']--;
-        if ($_SESSION['carrinho'][$id]['quantidade'] <= 0) {
-            unset($_SESSION['carrinho'][$id]);
+    if (isset($carrinho[$id])) {
+        $carrinho[$id]['quantidade']--;
+
+        if ($carrinho[$id]['quantidade'] <= 0) {
+            unset($carrinho[$id]);
         }
     }
+
     header('Location: carrinho.php');
     exit;
 }
@@ -41,7 +61,7 @@ if (isset($_GET['diminuir'])) {
 <head>
   <meta charset="UTF-8">
   <title>Meu Carrinho</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body class="container py-4">
 
@@ -64,21 +84,22 @@ if (isset($_GET['diminuir'])) {
       </thead>
       <tbody>
         <?php foreach ($carrinho as $id => $item): 
-          $precoUnit = floatval(str_replace(['R$', ','], ['', '.'], $item['preco']));
+          // Converter preço de formato "R$ 123,45" para float 123.45
+          $precoUnit = floatval(str_replace(['R$', '.', ','], ['', '', '.'], $item['preco']));
           $subtotal = $precoUnit * $item['quantidade'];
           $total += $subtotal;
         ?>
           <tr>
-            <td><img src="<?= $item['imagem'] ?>" width="70"></td>
-            <td><?= $item['nome'] ?></td>
-            <td><?= $item['preco'] ?></td>
+            <td><img src="<?= htmlspecialchars($item['imagem']) ?>" width="70" alt="<?= htmlspecialchars($item['nome']) ?>"></td>
+            <td><?= htmlspecialchars($item['nome']) ?></td>
+            <td><?= htmlspecialchars($item['preco']) ?></td>
             <td>
-              <a href="?diminuir=<?= $id ?>" class="btn btn-sm btn-outline-secondary">−</a>
+              <a href="?diminuir=<?= urlencode($id) ?>" class="btn btn-sm btn-outline-secondary">−</a>
               <?= $item['quantidade'] ?>
-              <a href="?adicionar=<?= $id ?>" class="btn btn-sm btn-outline-secondary">+</a>
+              <a href="?adicionar=<?= urlencode($id) ?>&nome=<?= urlencode($item['nome']) ?>&preco=<?= urlencode($item['preco']) ?>&imagem=<?= urlencode($item['imagem']) ?>" class="btn btn-sm btn-outline-secondary">+</a>
             </td>
             <td>R$ <?= number_format($subtotal, 2, ',', '.') ?></td>
-            <td><a href="?remover=<?= $id ?>" class="btn btn-sm btn-danger">Remover</a></td>
+            <td><a href="?remover=<?= urlencode($id) ?>" class="btn btn-sm btn-danger">Remover</a></td>
           </tr>
         <?php endforeach; ?>
         <tr>
