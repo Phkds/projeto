@@ -98,6 +98,78 @@
       <p class="lead mb-4">Camisas de time com qualidade, autenticidade e muito estilo. Torça com a sua segunda pele!</p>
       <a href="produtos.php" class="btn btn-cinza-escuro btn-lg">Ver Produtos</a>
     </section>
+    <!-- Destaques em Carrossel -->
+<section class="container my-5">
+  <h2 class="text-warning mb-4 text-center">Destaques da Semana</h2>
+  <div id="carouselDestaques" class="carousel slide carousel-dark" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="row justify-content-center">
+          <div class="col-md-4">
+            <div class="card bg-dark text-white border-0 shadow">
+              <img src="imagens/flamengo.jpg" class="card-img-top" alt="Camisa 1">
+              <div class="card-body text-center">
+                <h5 class="card-title">Camisa Flamengo</h5>
+                <p class="card-text">R$ 90,00</p>
+                <a href="produtos.php?id=1" class="btn btn-cinza-escuro">Ver Produto</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 d-none d-md-block">
+            <div class="card bg-dark text-white border-0 shadow">
+              <img src="imagens/palmeiras.jpg" class="card-img-top" alt="Camisa 2">
+              <div class="card-body text-center">
+                <h5 class="card-title">Camisa Palmeiras</h5>
+                <p class="card-text">R$ 90,00</p>
+                <a href="produtos.php?id=2" class="btn btn-cinza-escuro">Ver Produto</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="row justify-content-center">
+          <div class="col-md-4">
+            <div class="card bg-dark text-white border-0 shadow">
+              <img src="imagens/barça.jpg" class="card-img-top" alt="Camisa 3">
+              <div class="card-body text-center">
+                <h5 class="card-title">Camisa Barcelona </h5>
+                <p class="card-text">R$ 100,00</p>
+                <a href="produtos.php?id=3" class="btn btn-cinza-escuro">Ver Produto</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 d-none d-md-block">
+            <div class="card bg-dark text-white border-0 shadow">
+              <img src="imagens/real madri.jpg" class="card-img-top" alt="Camisa 4">
+              <div class="card-body text-center">
+                <h5 class="card-title">Camisa Real Madrid</h5>
+                <p class="card-text">R$ 100,00</p>
+                <a href="produtos.php?id=4" class="btn btn-cinza-escuro">Ver Produto</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Controles -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDestaques" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon bg-dark rounded-circle" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselDestaques" data-bs-slide="next">
+      <span class="carousel-control-next-icon bg-dark rounded-circle" aria-hidden="true"></span>
+      <span class="visually-hidden">Próximo</span>
+    </button>
+  </div>
+</section>
+
 
     <!-- Sobre a loja com mapa -->
     <section class="container my-5 py-5 px-4 rounded-4 shadow" style="background: #1f1f1f;">
