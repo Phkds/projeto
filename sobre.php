@@ -67,6 +67,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="produtos.php">Produtos</a></li>
           <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre nós</a></li>
           <li class="nav-item"><a class="nav-link" href="contato.php">Contato</a></li>
            <li class="nav-item"> <a class="nav-link" href="carrinho.php" title="Carrinho">
@@ -76,31 +77,42 @@
       </div>
     </div>
   </nav>
+<!-- Adicione isso em uma página PHP, dentro do <body> -->
+<!-- Certifique-se de que o Bootstrap está incluído no seu projeto -->
 
-<main class="container mt-5">
-    <h1>Sobre nós</h1>
-    <p>Bem-vindo à Vitoriano Sports, sua loja online de camisas de time! Somos apaixonados por futebol e dedicados a oferecer as melhores camisas para os verdadeiros torcedores.</p>
-    <p>Nossa missão é proporcionar qualidade, conforto e estilo em cada camisa que oferecemos. Trabalhamos com as melhores marcas e garantimos que nossos produtos atendam aos mais altos padrões.</p>
-    <p>Explore nossa coleção e encontre a camisa do seu time do coração!</p>
-<!-- Footer -->
- <footer class="bg-dark text-white text-center text-lg-start mt-auto">
-    <div class="container p-4">
-      <div class="row">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <h5 class="text-uppercase">Vitoriano Sports</h5>
-          <p>Camisas de time com qualidade e estilo. Nosso compromisso é com sua paixão pelo futebol!</p>
-        </div>
+<section class="container my-5">
+  <div class="row align-items-center">
+    <!-- Texto da Loja -->
+    <div class="col-md-6 mb-4 mb-md-0">
+      <h2 class="mb-3">Sobre a Vitoriano Sports</h2>
+      <p>
+        A <strong>Vitoriano Sports</strong> é uma loja especializada em camisas de time nacionais e internacionais.
+        Com paixão pelo futebol, oferecemos uma seleção de produtos de alta qualidade para quem vive o esporte intensamente.
+        Torça, colecione ou presenteie com estilo e autenticidade.
+      </p>
+      <p class="mt-3">
+        <strong>Endereço:</strong><br>
+        R. Caçanjure, 157 - Jardim Damasco<br>
+        Campo Mourão - PR, 87306-130
+      </p>
+    </div>
 
-        <div class="col-lg-3 mb-4 mb-lg-0">
-          <h5 class="text-uppercase">Contato</h5>
-          <ul class="list-unstyled">
-            <li>Email: <a href="mailto:paulokondazeski043@gmail.com" class="text-white">paulokondazeski043@gmail.com</a></li>
-            <li>Telefone: <a href="tel:+5544998657175" class="text-white">(44) 99865-7175</a></li>
-            <li>Instagram: <a href="https://instagram.com/vitorianosports" target="_blank" rel="noopener" class="text-white">@vitorianosports</a></li>
-          </ul>
-        </div>
+    <!-- Mapa da Localização -->
+    <div class="col-md-6">
+      <div class="ratio ratio-4x3 rounded shadow-sm">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.3821512463813!2d-52.36991732483954!3d-23.61268176382194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ecd0f7c31cb395%3A0x4bde8050b1d429ff!2sR.%20Ca%C3%A7anjure%2C%20157%20-%20Jardim%20Damasco%2C%20Campo%20Mour%C3%A3o%20-%20PR%2C%2087306-130!5e0!3m2!1spt-BR!2sbr!4v1719174904804!5m2!1spt-BR!2sbr" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
     </div>
+  </div>
+</section>
+
+
 
     <div class="text-center p-3 bg-secondary">
       &copy; 2025 Vitoriano Sports - Todos os direitos reservados
