@@ -1,42 +1,42 @@
 <?php
 session_start();
 
-// Obtém o carrinho da sessão ou inicializa vazio
-$carrinho = $_SESSION['carrinho'] ?? [];
-
-if (empty($carrinho)) {
-    // Se o carrinho estiver vazio, redireciona para a página do carrinho
+// Verifica se o carrinho existe e tem itens
+if (!isset($_SESSION['carrinho']) || empty($_SESSION['carrinho'])) {
     header('Location: carrinho.php');
     exit;
 }
 
-// Monta a mensagem do pedido
+$carrinho = $_SESSION['carrinho'];
 $mensagem = "*Olá! Gostaria de finalizar minha compra com os seguintes itens:*\n\n";
 $total = 0;
 
+// Monta a mensagem com os produtos
 foreach ($carrinho as $item) {
-    // Corrige o índice 'quantidade' removendo espaço extra
-    $nome = $item['nome'];
-    $preco = $item['preco'];
-    $quantidade = $item['quantidade']; 
+    $nome = $item['nome'] ?? 'Produto';
+    $preco = $item['preco'] ?? 'R$ 0,00';
+    $quantidade = $item['quantidade'] ?? 1;
+    $tamanho = $item['tamanho'] ?? 'M';
 
-    $mensagem .= "• {$nome} - {$quantidade}x - {$preco}\n";
+    $mensagem .= "• {$nome} ({$tamanho}) - {$quantidade}x - {$preco}\n";
 
-    // Converte o preço para float, removendo 'R$' e vírgulas
-    $valor = floatval(str_replace(['R$', ','], ['', '.'], $preco));
+    // Converte preço em string para número
+    $valor = floatval(str_replace(['R$', '.', ','], ['', '', '.'], $preco));
     $total += $valor * $quantidade;
 }
 
-// Adiciona o total à mensagem
 $mensagem .= "\n*Total: R$ " . number_format($total, 2, ',', '.') . "*";
 
-// Codifica a mensagem para URL
+// Codifica a mensagem para a URL
 $mensagemCodificada = urlencode($mensagem);
 
-// Número do WhatsApp (formato internacional com DDI, DDD e número)
-$numero = '5544998657175'; // Removi espaços e caracteres especiais
+// Número do WhatsApp (com DDI e DDD, sem espaços ou símbolos)
+$numero = '5544998657175';
 
-// Redireciona para o WhatsApp com a mensagem
+// (Opcional) Limpa o carrinho após o redirecionamento
+// unset($_SESSION['carrinho']);
+
+// Redireciona para o WhatsApp
 header("Location: https://wa.me/{$numero}?text={$mensagemCodificada}");
 exit;
 ?>
