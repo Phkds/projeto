@@ -69,7 +69,7 @@ if (isset($_GET['diminuir'])) {
 
   <?php if (empty($carrinho)): ?>
     <div class="alert alert-info">Seu carrinho está vazio.</div>
-    <a href="index.php" class="btn btn-primary">Voltar à loja</a>
+    <a href="produtos.php" class="btn btn-primary">Voltar à loja</a>
   <?php else: ?>
     <table class="table table-bordered align-middle text-center">
       <thead class="table-light">
