@@ -1,4 +1,4 @@
-<<?php
+<?php
 session_start();
 
 // Obtém o carrinho da sessão ou inicializa vazio

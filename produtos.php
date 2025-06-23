@@ -1,4 +1,4 @@
-    <?php
+     <?php
     // Array de produtos
     $produtos = [
         'times_europeus' => [
@@ -126,7 +126,8 @@
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" href="produtos.php">Produtos</a></li>
             <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre nós</a></li>
             <li class="nav-item"><a class="nav-link" href="contato.php">Contato</a></li>
               <li class="nav-item"> <a class="nav-link" href="carrinho.php" title="Carrinho">

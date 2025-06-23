@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -66,12 +66,12 @@
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="produtos.php">Produtos</a></li>
           <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre nós</a></li>
-          <li class="nav-item"><a class="nav-link" href="contato.php">Contato</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contato.php">Contato</a></li>
             <li class="nav-item"> <a class="nav-link" href="carrinho.php" title="Carrinho">
-    <i class="bi bi-cart3" style="font-size: 1.2rem;"></i>   
-        </ul>
+    <i class="bi bi-cart3" style="font-size: 1.2rem;"></i>
       </div>
     </div>
   </nav>
