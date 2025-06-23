@@ -2,38 +2,31 @@
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Valida e obtém os dados do POST com fallback
     $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS) ?? 'Produto';
     $preco = filter_input(INPUT_POST, 'preco', FILTER_SANITIZE_SPECIAL_CHARS) ?? 'R$ 0,00';
     $imagem = filter_input(INPUT_POST, 'imagem', FILTER_SANITIZE_SPECIAL_CHARS) ?? 'imagens/padrao.jpg';
+    $tamanho = filter_input(INPUT_POST, 'tamanho', FILTER_SANITIZE_SPECIAL_CHARS) ?? 'M';
 
-    // Inicializa o carrinho se não existir
     if (!isset($_SESSION['carrinho'])) {
         $_SESSION['carrinho'] = [];
     }
 
-    // Verifica se o produto já está no carrinho (buscando pelo nome)
-    $existe = false;
-    foreach ($_SESSION['carrinho'] as &$item) {
-        if ($item['nome'] === $nome) {
-            $item['quantidade'] = ($item['quantidade'] ?? 1) + 1;
-            $existe = true;
-            break;
-        }
-    }
-    unset($item);
+    // Cria um id único para produto + tamanho, para diferenciar itens no carrinho
+    $idProduto = md5($nome . $tamanho);
 
-    // Se não existe, adiciona novo produto com quantidade 1
-    if (!$existe) {
-        $_SESSION['carrinho'][] = [
+    if (isset($_SESSION['carrinho'][$idProduto])) {
+        $_SESSION['carrinho'][$idProduto]['quantidade']++;
+    } else {
+        $_SESSION['carrinho'][$idProduto] = [
             'nome' => $nome,
             'preco' => $preco,
             'imagem' => $imagem,
+            'tamanho' => $tamanho,
             'quantidade' => 1
         ];
     }
 }
 
-session_write_close(); // salva sessão antes do redirect
+session_write_close();
 header('Location: carrinho.php');
 exit;
