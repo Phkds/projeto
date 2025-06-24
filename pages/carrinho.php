@@ -34,6 +34,7 @@ if (isset($_GET['diminuir'])) {
     header('Location: carrinho.php');
     exit;
 }
+
 ?>
 
 <!DOCTYPE html>

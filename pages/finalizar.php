@@ -39,4 +39,5 @@ $numero = '5544998657175';
 // Redireciona para o WhatsApp
 header("Location: https://wa.me/{$numero}?text={$mensagemCodificada}");
 exit;
+
 ?>
