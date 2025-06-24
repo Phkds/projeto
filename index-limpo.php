@@ -1,9 +1,7 @@
-<<<<<<< HEAD:index-limpo.php
-=======
+
 <?php
 // index.php
 ?>
->>>>>>> 41ebfe2c4f006aef1afbc88ad16f1f8aa055d6d8:index.php
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
